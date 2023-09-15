@@ -11,12 +11,12 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
-file_path = 'C:/Users/shaha/OneDrive/MSc Data Science & Business Analytics/PROJ518/RFE/Code3/Feature_Extraction_New.xlsx'
+# Insert file (of extracted features)
+file_path = ''
 
 # Read the Excel file into a DataFrame
 data = pd.read_excel(file_path)
 
-# Assuming you have your dataset loaded into a DataFrame called 'data'
 X = data.drop("Grade", axis=1)  # Features
 y = data["Grade"]  # Target variable
 
@@ -29,10 +29,6 @@ rfe = RFE(estimator=svm_classifier, n_features_to_select=num_features_to_select)
 X_rfe_selected = rfe.fit_transform(X, y)
 
 print(X_rfe_selected)
-
-
-# Create an SVM classifier
-svm_classifier = SVC(kernel='linear', C=1.0)
 
 # Perform cross-validation and get predicted labels for each fold
 # 'cv' specifies the number of folds for cross-validation (e.g., cv=5 for 5-fold cross-validation)
