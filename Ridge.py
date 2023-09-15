@@ -13,7 +13,8 @@ from sklearn.metrics import (
     confusion_matrix,
     make_scorer)
 
-file_path = 'C:/Users/shaha/OneDrive/MSc Data Science & Business Analytics/PROJ518/Lasso!/Code/Feature_Extraction_New.xlsx'
+# Insert file (of extracted features)
+file_path = ''
 
 # Read the Excel file into a DataFrame
 data = pd.read_excel(file_path)
