@@ -13,9 +13,8 @@ from sklearn.metrics import (
 )
 import matplotlib.pyplot as plt
 
-
-
-file_path = 'C:/Users/shaha/OneDrive/MSc Data Science & Business Analytics/PROJ518/InfoGain!/Code2/Feature_Extraction_New.xlsx'
+# Insert file (of extracted features)
+file_path = ''
 
 # Read the Excel file into a DataFrame
 data = pd.read_excel(file_path)
@@ -71,28 +70,4 @@ print("Recall (Sensitivity):", recall)
 print("Specificity:", specificity)
 print("F1 Score:", f1)
 print("AUC-ROC Score:", auc_roc)
-
-
-# Simulating actual tumor grades and determined grades for demonstration purposes
-np.random.seed(42)
-actual_grades = data["Grade"]  # Actual tumor grades
-# Predict tumor grades using the SVM classifier and selected features
-svm_predicted_grades = cross_val_predict(svm_classifier, X_selected, y, cv=5)
-
-# Predict tumor grades using the Lasso model and selected features
-predicted_grades = svm_predicted_grades
-
-# Create a scatter plot
-plt.figure(figsize=(10, 6))
-plt.scatter(range(len(data)), actual_grades, color='blue', label='Actual Grade', alpha=0.7)
-plt.scatter(range(len(data)), predicted_grades, color='red', label='Predicted Grade', alpha=0.7)
-plt.xlabel('Patients')
-plt.ylabel('Tumor Grade')
-plt.title('Actual vs. Determined Tumor Grade')
-plt.legend()
-plt.tight_layout()
-
-# Display the plot
-plt.show()
-
 
